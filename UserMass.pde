@@ -4,7 +4,8 @@ class UserMass{
   PImage userMassImage = loadImage("./img/userMassImageSample.png");
   int mass;
   float userMassImageAlpha = 0;
-  float imageSize = 0;
+  float imageSize = 80;
+  float amaount = 0;
   boolean isDeleted = false;
   UserMass(int _x, int _y, int _mass){
     pos = new PVector(_x, _y);
@@ -21,10 +22,10 @@ class UserMass{
       }
     }
     if(sqrt(pow(mouseX-pos.x, 2)+pow(mouseY-pos.y, 2)) < 40){
-      imageSize = 100;
+      imageSize += (100-imageSize) * 0.01 * dt;
     }
     else{
-      imageSize = 80;
+      imageSize += (80-imageSize) * 0.01 * dt;
     }
     
     imageMode(CENTER);
